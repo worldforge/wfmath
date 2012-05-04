@@ -7,6 +7,7 @@
 # Extra NOTE: This script was then recopied from WFMath to WFMath
 
 DIE=0
+LIBTOOLIZE=libtoolize
 
 (autoconf --version) < /dev/null > /dev/null 2>&1 || {
   echo
@@ -16,13 +17,18 @@ DIE=0
   DIE=1
 }
 
-(grep "^AM_PROG_LIBTOOL" ./configure.ac >/dev/null) && {
+(grep "^AM_PROG_LIBTOOL" ./configure.ac >/dev/null) || {
   (libtoolize --version) < /dev/null > /dev/null 2>&1 || {
-    echo
-    echo "**Error**: You must have \`libtool' installed to compile WFMath."
-    echo "Get ftp://ftp.gnu.org/pub/gnu/libtool-1.2d.tar.gz"
-    echo "(or a newer version if it is available)"
-    DIE=1
+	echo "libtool missing, checking for glibtool"
+    (glibtoolize --version) < /dev/null > /dev/null 2>&1 || {
+      echo
+      echo "**Error**: You must have \`libtool' installed to compile WFMath."
+      echo "Get ftp://ftp.gnu.org/pub/gnu/libtool-1.2d.tar.gz"
+      echo "(or a newer version if it is available)"
+      DIE=1
+	}
+	LIBTOOLIZE=glibtoolize
+	echo "glibtoolize found ( $LIBTOOLIZE )"
   }
 }
 
@@ -60,7 +66,7 @@ fi
 aclocalinclude="$ACLOCAL_FLAGS"
 
 #echo "Running libtoolize..."
-libtoolize --automake --copy --force
+$LIBTOOLIZE --automake --copy --force
 
 #libtoolize --force --copy
 
