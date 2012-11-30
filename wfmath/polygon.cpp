@@ -180,6 +180,11 @@ Polygon<2> Polygon<2>::toLocalCoords(const RotBox<2>& coords) const
   return out;
 }
 
+extern template class Vector<3>;
+extern template class Vector<2>;
+extern template class Point<3>;
+extern template class Point<2>;
+
 template class Polygon<3>;
 template class _Poly2Orient<3>;
 

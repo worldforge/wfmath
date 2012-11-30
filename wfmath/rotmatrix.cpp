@@ -370,6 +370,9 @@ RotMatrix<3>::RotMatrix(const Quaternion& q,
   fromQuaternion(q, not_flip);
 }
 
+extern template class Vector<3>;
+extern template class Vector<2>;
+
 template class RotMatrix<2>;
 template class RotMatrix<3>;
 

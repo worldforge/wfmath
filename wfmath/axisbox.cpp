@@ -34,6 +34,11 @@
 
 namespace WFMath {
 
+extern template class Point<3>;
+extern template class Point<2>;
+extern template class Vector<3>;
+extern template class Vector<2>;
+
 template class AxisBox<3>;
 template class AxisBox<2>;
 

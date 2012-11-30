@@ -64,6 +64,13 @@ template<> RotBox<3> RotBox<3>::toLocalCoords(const Point<3>& origin,
   return RotBox<3>(m_corner0.toLocalCoords(origin, rotation), m_size, orient.rotate(rotation.inverse()));
 }
 
+extern template class Point<2>;
+extern template class Point<3>;
+extern template class Vector<2>;
+extern template class Vector<3>;
+extern template class RotMatrix<2>;
+extern template class RotMatrix<3>;
+
 template class RotBox<2>;
 template class RotBox<3>;
 

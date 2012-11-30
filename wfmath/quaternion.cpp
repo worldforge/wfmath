@@ -42,6 +42,8 @@
 
 namespace WFMath {
 
+extern template class Vector<3>;
+
 Quaternion::Quaternion (CoordType w_in,
                         CoordType x_in,
                         CoordType y_in,

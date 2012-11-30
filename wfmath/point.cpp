@@ -122,6 +122,9 @@ Point<3> Point<3>::toParentCoords(const Point<3>& origin,
   return origin + (*this - Point().setToOrigin()).rotate(rotation);
 }
 
+extern template class Vector<3>;
+extern template class Vector<2>;
+
 template class Point<3>;
 template class Point<2>;
 

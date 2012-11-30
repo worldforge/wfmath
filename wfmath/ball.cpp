@@ -75,6 +75,9 @@ template Ball<3> BoundingSphere<3, std::vector>(std::vector<Point<3>,
 template Ball<3> BoundingSphereSloppy<3, std::vector>(std::vector<Point<3>,
                                                       std::allocator<Point<3> > > const&);
 
+extern template class Point<2>;
+extern template class Point<3>;
+
 template Ball<2> Point<2>::boundingSphere() const;
 template Ball<2> Point<2>::boundingSphereSloppy() const;
 

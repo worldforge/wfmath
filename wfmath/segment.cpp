@@ -65,6 +65,8 @@ template<> Segment<3> Segment<3>::toLocalCoords(const Point<3>& origin,
                  m_p2.toLocalCoords(origin, rotation));
 }
 
+extern template class Point<2>;
+extern template class Point<3>;
 
 template class Segment<2>;
 template class Segment<3>;
